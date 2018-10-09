@@ -1,0 +1,89 @@
+let roulette = document.querySelector('#roulette')
+let options = ['KFC','McDo','BK','Pizza','Salade', '5Guyz', 'stak n shak', 'auchan', 'rien', 'kebab', 'chinois', 'paki']
+
+let tour = options.length * -Math.round(1 + Math.random() * 4)
+let vitesse = 50
+let vitesseIncremente = 10
+let probamax = 0
+let probaIncremente = 5
+let stop = null
+let selected = 1000
+let running = false;
+
+/**
+ * On mets chaque div pour chaque options
+ */
+function mettreOptions() {
+  options.forEach(option => {
+    let element = document.createElement('div')
+    element.classList.add(`option`)
+    element.innerHTML = option
+    roulette.appendChild(element)
+  })
+}
+
+/**
+ * On fait tourner la roulette, en mettant bien la classe active
+ */
+function rouletteTick () {
+  selected++
+  if (selected > options.length - 1) selected = 0
+
+  let actif = document.querySelector('.active')
+  if (actif) actif.classList.remove('active')
+
+  actif = document.querySelector(`.option:nth-child(${selected + 1})`)
+  if (actif) actif.classList.add('active')
+}
+
+/**
+ * initialisation de la roulette
+ */
+function initRoulette () {
+  if (running) return
+  tour = options.length * -Math.round(1 + Math.random() * 4)
+  vitesse = 50
+  probamax = 0
+  stop = null
+  selected = 100000
+  running = true
+  lancerRoulette()
+}
+
+/**
+ * On lance la boucle roulette
+ */
+function lancerRoulette() {
+  // Roulette
+  rouletteTick()
+  // incrementation du tour
+  tour++
+
+  // si on a fait un tour complet
+  if (tour >= 0 && selected === 0) {
+    vitesse += vitesseIncremente
+    probamax += probaIncremente
+    
+    // On s'arrete? 
+    let proba = Math.round(Math.random() * 100)
+    if (proba <= probamax) {
+      stop = Math.floor(Math.random() * options.length)
+      console.log(stop)
+    }
+  }
+  
+  if (stop != null && selected == stop) return niveauTermin()
+  
+  setTimeout(lancerRoulette, vitesse)
+}
+
+/**
+ * 
+ */
+function niveauTermin() {
+  running = false
+  console.log(selected, stop)
+}
+(function() {
+  mettreOptions()
+})()
