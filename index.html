@@ -10,12 +10,24 @@
 <body>
   <h1 id="title">La roulette du Gras</h1>
 
+  <div class="editbutton">
+    <svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z" /></svg>
+  </div>
+
   <div id="roulette"></div>
 
   <div id="lancer">
     <div onclick="initRoulette()">vazy</div>
   </div>
 
-  <script src="public/script.js"></script>
+  <div class="editwrap" style="visibility:hidden;">
+  <!-- <div class="editwrap"> -->
+    <div class="editlist">
+      <h1 class="title">Editer la liste</h1>
+      <div id="list"></div>
+    </div>
+  </div>
+  <script src="public/roulette.js"></script>
+  <script src="public/edit.js"></script>
 </body>
 </html>

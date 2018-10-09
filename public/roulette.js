@@ -1,9 +1,9 @@
 let roulette = document.querySelector('#roulette')
+let listoption = document.querySelector('#list')
 let options = ['KFC','McDo','BK','Pizza','Salade', '5Guyz', 'stak n shak', 'auchan', 'rien', 'kebab', 'chinois', 'paki']
-
 let tour = options.length * -Math.round(1 + Math.random() * 4)
 let vitesse = 50
-let vitesseIncremente = 10
+let vitesseIncremente = 50
 let probamax = 0
 let probaIncremente = 5
 let stop = null
@@ -12,13 +12,21 @@ let running = false;
 
 /**
  * On mets chaque div pour chaque options
+ * ainsi que pour la partie edit
  */
 function mettreOptions() {
-  options.forEach(option => {
+  roulette.innerHTML = ''
+  listoption.innerHTML = ''
+  options.forEach((option, index) => {
+    // partie visu 
     let element = document.createElement('div')
-    element.classList.add(`option`)
-    element.innerHTML = option
-    roulette.appendChild(element)
+    // element.classList.add(`option`)
+    // element.innerHTML = option
+    // roulette.appendChild(element)
+    roulette.innerHTML += `<div class="option">${option}</div>`
+
+    // partie option
+    listoption.innerHTML += `<div class="listoption"><div>${option}</div> <div class="delete" data-index="${index}">❌</div></div>`
   })
 }
 

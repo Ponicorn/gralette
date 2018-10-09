@@ -69,3 +69,78 @@ body {
   user-select: none;
                               
 }
+
+.editbutton {
+  height: 50px;
+  width:  50px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #db0a5b;
+  padding: 0;
+  cursor: pointer;
+}
+.editbutton>svg {
+  fill: #eeeeee;
+}
+
+.editwrap {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.editlist {
+  background: #eeeeee;
+  padding: 25px;
+  min-width: 75vw;
+  margin: 5vmin;
+}
+
+.editlist .title {
+  font-size: 4em;
+  color: #db0a5b;
+  text-align: center;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.listoption {
+  display: flex;
+  margin: 5px;
+  padding: 0 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%
+}
+.listoption>div:first-child {
+  flex-grow: 1;
+}
+.listoption>.delete {
+  cursor: pointer;
+  padding: 10px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.listoption:hover {
+  background: #dddddd
+}
