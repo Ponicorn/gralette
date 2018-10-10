@@ -1,7 +1,7 @@
 let roulette = document.querySelector('#roulette')
 let listoption = document.querySelector('#list')
-let options = ['KFC', 'McDo', 'BK', 'Pizza']
-let tour = options.length * -Math.round(1 + Math.random() * 4)
+let options 
+let tour = 2
 let vitesse = 50
 let vitesseIncremente = 50
 let probamax = 0
@@ -10,11 +10,19 @@ let stop = null
 let selected = 1000
 let running = false;
 
+function initOptions() {
+  if (!localStorage.options || localStorage.options.length === 0)  
+    localStorage.setItem('options', ['KFC', 'McDo', 'BK', 'Pizza'])
+  
+  options = localStorage.options.split(',')
+}
+
 /**
  * On mets chaque div pour chaque options
  * ainsi que pour la partie edit
  */
 function mettreOptions() {
+  localStorage.setItem('options', options)
   roulette.innerHTML = ''
   listoption.innerHTML = ''
   options.forEach((option, index) => {
@@ -88,5 +96,6 @@ function niveauTermin() {
 }
 
 (function () {
+  initOptions()
   mettreOptions()
 })()
