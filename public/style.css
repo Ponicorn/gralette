@@ -144,3 +144,28 @@ body {
 .listoption:hover {
   background: #dddddd
 }
+
+.add {
+  text-align: center;
+  margin: 5px
+}
+
+.add input, .add button {
+  border: none;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+
+}
+.add input {
+ min-width: 250px;
+ width: 50%;
+}
+
+.add button {
+  min-width: 100px;
+  background: #db0a5b;
+  color: #eeeeee;
+  font-weight: bold;
+  cursor: pointer;
+ }

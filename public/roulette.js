@@ -1,6 +1,6 @@
 let roulette = document.querySelector('#roulette')
 let listoption = document.querySelector('#list')
-let options = ['KFC','McDo','BK','Pizza','Salade', '5Guyz', 'stak n shak', 'auchan', 'rien', 'kebab', 'chinois', 'paki']
+let options = ['KFC', 'McDo', 'BK', 'Pizza']
 let tour = options.length * -Math.round(1 + Math.random() * 4)
 let vitesse = 50
 let vitesseIncremente = 50
@@ -20,9 +20,6 @@ function mettreOptions() {
   options.forEach((option, index) => {
     // partie visu 
     let element = document.createElement('div')
-    // element.classList.add(`option`)
-    // element.innerHTML = option
-    // roulette.appendChild(element)
     roulette.innerHTML += `<div class="option">${option}</div>`
 
     // partie option
@@ -33,7 +30,7 @@ function mettreOptions() {
 /**
  * On fait tourner la roulette, en mettant bien la classe active
  */
-function rouletteTick () {
+function rouletteTick() {
   selected++
   if (selected > options.length - 1) selected = 0
 
@@ -47,7 +44,7 @@ function rouletteTick () {
 /**
  * initialisation de la roulette
  */
-function initRoulette () {
+function initRoulette() {
   if (running) return
   tour = options.length * -Math.round(1 + Math.random() * 4)
   vitesse = 50
@@ -71,27 +68,25 @@ function lancerRoulette() {
   if (tour >= 0 && selected === 0) {
     vitesse += vitesseIncremente
     probamax += probaIncremente
-    
+
     // On s'arrete? 
     let proba = Math.round(Math.random() * 100)
-    if (proba <= probamax) {
+    if (proba <= probamax)
       stop = Math.floor(Math.random() * options.length)
-      console.log(stop)
-    }
   }
-  
+
   if (stop != null && selected == stop) return niveauTermin()
-  
+
   setTimeout(lancerRoulette, vitesse)
 }
 
 /**
- * 
+ * fin de processus
  */
 function niveauTermin() {
   running = false
-  console.log(selected, stop)
 }
-(function() {
+
+(function () {
   mettreOptions()
 })()
