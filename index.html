@@ -36,10 +36,16 @@
     </div>
 
     <!-- Modal edition -->
-    <div class="modalwrapper" v-if="showmodal">
-      <div class="modal">
+    <div class="modalwrapper" v-if="showmodal" @click="showmodal = false">
+      <div class="modal" @click.stop>
         <!-- Titre modal -->
         <div class="title">Editer les choix</div>
+
+        <!-- Nouvelle option -->
+        <div class="actions nouveau">
+          <div><input type="text" v-model="nouvelleoption" @keyup.enter="ajouter"></div>
+          <div @click="ajouter">Ajouter</div>
+        </div>
 
         <!-- Liste options modal -->
         <div class="editliste">

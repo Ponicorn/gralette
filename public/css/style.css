@@ -129,3 +129,20 @@ body {
   padding: 0;
   margin: 0;
 }
+.modal .actions.nouveau>div {
+  text-align: center;
+  width: 75%;
+}
+.modal .actions.nouveau>div:first-child input{
+  padding: 10px;
+  text-align: center;
+  border: none;
+  font-size: 1.25rem;
+}
+.modal .actions.nouveau>div:last-child {
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 1.25rem;
+  background:#db0a5b;
+  color: #eeeeee; 
+}

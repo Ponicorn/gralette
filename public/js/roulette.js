@@ -79,8 +79,16 @@ function terminRoulette () {
   console.log('fin')
 }
 
+/**
+ * Retire l'option a l'index ciblé
+ * @param {*} index 
+ */
 function retirerOptionRoulette (index) {
   if (roulette.running) return
   if (!roulette.options[index]) return
   roulette.options.splice(index, 1)
+}
+
+function ajouterOptionRoulette (option) {
+  roulette.options.push(option)
 }
