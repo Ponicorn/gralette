@@ -19,7 +19,15 @@ body {
   font-weight: bold;
   font-size: 3rem;
   color: #db0a5b;
-  margin: 10px 60px;
+  margin: 10px 60px 0px 60px;
+  text-transform: uppercase;
+}
+
+#subtitle {
+  text-align: center;
+  font-size: 2rem;
+  color: #db0a5b;
+  margin: 0px 60px 10px 60px;
 }
 
 #roulette {
