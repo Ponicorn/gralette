@@ -80,7 +80,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
   width: 100vw;
   background: rgba(0,0,0,0.5);
   display: flex;
