@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400,500');
+
+/* Generique */
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100vw;
+  background: #eeeeee;
+  color: #2c2c2c;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 12px;
+}
+
+/* Titre */
+.title {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+  margin: 20px 10px 30px 10px;
+  color: #db0a5b;
+}
+.title>div:first-child { text-transform: uppercase; }
+.title>div:last-child { font-size: 0.5em; }
+
+/* Roulette */
+.roulette {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+.rouletteitem {
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid #db0a5b;
+  color: #db0a5b;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.rouletteitem.selected {
+  background: #dcc6e0;
+}
+.rouletteitem.selected.grasdechoix {
+  background: #db0a5b;
+  color: #eeeeee;
+}
+
+/* Menu d'action */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.actions .lancer, .actions .edit {
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.actions .lancer, .actions .termin{
+  background: #db0a5b;
+  color: #eeeeee;
+  font-weight: bold;
+}
+.running .lancer {
+  background: #bbb;
+  background: #eeeeee;
+  color: #db0a5b;
+  cursor: not-allowed;
+}
+.running .edit {
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modalwrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto;
+  width: 100vw;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+.modalwrapper .modal {
+  background: #eeeeee;
+  /* margin: 20px 0; */
+  padding: 20px;
+}
+.modalwrapper .modal .title {
+  font-size: 3rem;
+  font-weight: normal;
+  margin: 0 10px 10px 10px;
+}
+.modal .editliste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal .editliste .option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 80%;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+.modal .editliste .option:hover {
+  background: #e0e0e0;
+}
+.modal .editliste .option>div{ 
+  padding: 10px;
+}
+.modal .editliste .option>div:first-child {
+  flex-grow: 1;
+  text-align: center;
+}
+.modal .editliste .option>div:last-child {
+  cursor: pointer;
+}
+.modal .actions {
+  padding: 0;
+  margin: 0;
+}
+.modal .actions.nouveau>div {
+  text-align: center;
+  width: 75%;
+}
+.modal .actions.nouveau>div:first-child input{
+  padding: 10px;
+  text-align: center;
+  border: none;
+  font-size: 1.25rem;
+}
+.modal .actions.nouveau>div:last-child {
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 1.25rem;
+  background:#db0a5b;
+  color: #eeeeee; 
+}
