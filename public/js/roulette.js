@@ -1,7 +1,7 @@
 'use strict';
 
 let roulette = {
-  options : ['KFC', 'McDo', 'BK', 'Pizza'] ,
+  options : ['KFC', 'McDo', 'BK', 'Pizza', 'Kebab'] ,
   selected : -1,
   running: false,
   tour: 0,
@@ -11,6 +11,19 @@ let roulette = {
   probarangeIteration: 5,
   grasdechoix: -1,
 }
+
+/**
+ * On va checher dans un premier temps 
+ * si il y a pas déjà les options
+ * dans le localstorage
+ */
+function init () {
+  if (!localStorage.optionsRoulette || !localStorage.optionsRoulette.length) {
+    localStorage.setItem('optionsRoulette', roulette.options)
+  }
+  roulette.options = localStorage.optionsRoulette.split(',')
+}
+init ()
 
 /**
  * On met un coup de roulette, 
@@ -87,8 +100,10 @@ function retirerOptionRoulette (index) {
   if (roulette.running) return
   if (!roulette.options[index]) return
   roulette.options.splice(index, 1)
+  localStorage.setItem('optionsRoulette', roulette.options)
 }
 
 function ajouterOptionRoulette (option) {
   roulette.options.push(option)
+  localStorage.setItem('optionsRoulette', roulette.options)
 }

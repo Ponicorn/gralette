@@ -43,7 +43,7 @@ body {
   font-weight: bold;
 }
 .rouletteitem.selected {
-  background: #fab5d0;
+  background: #dcc6e0;
 }
 .rouletteitem.selected.grasdechoix {
   background: #db0a5b;
@@ -69,6 +69,8 @@ body {
 }
 .running .lancer {
   background: #bbb;
+  background: #eeeeee;
+  color: #db0a5b;
   cursor: not-allowed;
 }
 .running .edit {
@@ -80,7 +82,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
   overflow: auto;
   width: 100vw;
   background: rgba(0,0,0,0.5);
@@ -91,7 +96,7 @@ body {
 }
 .modalwrapper .modal {
   background: #eeeeee;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   padding: 20px;
 }
 .modalwrapper .modal .title {
