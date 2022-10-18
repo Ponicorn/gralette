@@ -1,7 +1,7 @@
 'use strict';
 
 let roulette = {
-  options : ['KFC', 'McDo', 'BK', 'Pizza', 'Kebab'] ,
+  options : ['KFC', 'McDo', 'Burger King', 'Cantine', 'Kebab'] ,
   selected : -1,
   running: false,
   tour: 0,
