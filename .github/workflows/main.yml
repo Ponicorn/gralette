@@ -36,6 +36,7 @@ jobs:
           overwrite: true
 
   deploy:
+    needs: build
     name: Deploy
     environment:
       name: github-pages
