@@ -11,8 +11,8 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: Build
     environment:
       name: github-pages
     runs-on: ubuntu-latest
@@ -28,7 +28,6 @@ jobs:
         run: |
           ls -la
           ls -la dist
-
       - name: Upload ⬆️
         uses: actions/upload-artifact@v4
         with:
@@ -36,6 +35,12 @@ jobs:
           path: ./dist
           overwrite: true
 
+  deploy:
+    name: Deploy
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy 🚚
         uses: actions/deploy-pages@v4
 
