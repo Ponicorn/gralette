@@ -23,13 +23,19 @@ jobs:
       - name: Build 📦
         run: |
           mkdir dist
-          cp -R index.html public dist/
+          tar -cf "$RUNNER_TEMP/artifact.tar" index.html public
 
       - name: Upload ⬆️
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist
-          
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          overwrite: true
+
+      # - name: Upload ⬆️
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ./dist
   deploy:
     needs: build
     name: Deploy
