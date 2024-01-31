@@ -1,59 +1,57 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useRouletteStore = defineStore('roulette', () => {
-
     const defaultChoices = [
         'Bacon',
         'Eggs',
         'Toast',
         'Sausage',
-        'Hash Browns'
-    ]
+        'Hash Browns',
+    ];
 
-    const choices = ref(defaultChoices)
-    const winner = ref(-1)
-    const isSpinning = ref(false)
+    const choices = ref(defaultChoices);
+    const winner = ref(-1);
+    const isSpinning = ref(false);
 
     const addChoice = (choice) => {
-        choices.value.push(choice)
-    }
+        choices.value.push(choice);
+    };
 
     const removeChoice = (choice) => {
-        choices.value = choices.value.filter(c => c !== choice)
-    }
+        choices.value = choices.value.filter((c) => c !== choice);
+    };
 
-    const pickWinner = () => {
-        return choices.value[Math.floor(Math.random() * choices.value.length)]
-    }
+    const pickWinner = () => choices.value[Math.floor(Math.random() * choices.value.length)];
 
     const loop = async (waiting, winning = false) => {
-        const winnerTmp = winning ? pickWinner() : false
+        const winnerTmp = winning ? pickWinner() : false;
         for (let i = 0; i < choices.value.length; i++) {
-            await new Promise(resolve => setTimeout(resolve, waiting))
-            winner.value = choices.value[i]
+            // eslint-disable-next-line no-promise-executor-return
+            await new Promise((resolve) => setTimeout(resolve, waiting));
+            winner.value = choices.value[i];
 
             if (winner.value === winnerTmp) {
-                break
+                break;
             }
         }
-    }
+    };
 
     const spin = async () => {
-        if (isSpinning.value) return
-        isSpinning.value = true
-        const spinCount = Math.floor(Math.random() * 4) + 5
-        let spin = 0
-        let wait = 100
+        if (isSpinning.value) return;
+        isSpinning.value = true;
+        const spinTotal = Math.floor(Math.random() * 4) + 5;
+        let spinCounter = 0;
+        let wait = 100;
 
-        while (spin < spinCount) {
-            await loop(wait)
-            spin++
-            if (spin > 4) wait += 100
+        while (spinCounter < spinTotal) {
+            await loop(wait);
+            spinCounter++;
+            if (spinCounter > 4) wait += 100;
         }
-        loop(wait, true)
-        isSpinning.value = false
-    }
+        loop(wait, true);
+        isSpinning.value = false;
+    };
 
     return {
         choices,
@@ -61,6 +59,6 @@ export const useRouletteStore = defineStore('roulette', () => {
         addChoice,
         removeChoice,
         pickWinner,
-        spin
-    }
-})
+        spin,
+    };
+});
