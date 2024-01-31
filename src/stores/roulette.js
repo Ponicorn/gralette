@@ -11,7 +11,7 @@ export const useRouletteStore = defineStore('roulette', () => {
     ];
 
     const choices = ref(defaultChoices);
-    const winner = ref(-1);
+    const winner = ref();
     const isSpinning = ref(false);
 
     const addChoice = (choice) => {
@@ -37,17 +37,18 @@ export const useRouletteStore = defineStore('roulette', () => {
         }
     };
 
-    const spin = async () => {
+    const spin = async (instant = false) => {
         if (isSpinning.value) return;
+
         isSpinning.value = true;
         const spinTotal = Math.floor(Math.random() * 4) + 5;
         let spinCounter = 0;
-        let wait = 100;
+        let wait = instant ? 0 : 100;
 
         while (spinCounter < spinTotal) {
             await loop(wait);
             spinCounter++;
-            if (spinCounter > 4) wait += 100;
+            if (!instant && spinCounter > 4) wait += 100;
         }
         loop(wait, true);
         isSpinning.value = false;
@@ -60,5 +61,6 @@ export const useRouletteStore = defineStore('roulette', () => {
         removeChoice,
         pickWinner,
         spin,
+        loop,
     };
 });
