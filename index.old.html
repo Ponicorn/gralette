@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="public/css/reset.css">
+  <link rel="stylesheet" href="public/css/style.css">
+  <script src="public/lib/vue.min.js"></script>
+  <title>Gralette</title>
+</head>
+<body>
+  
+  <div id="app" >
+    <!-- Titre -->
+    <div class="title">
+      <div>Gralette</div>
+      <div>La roulette du gras</div>
+    </div>
+
+    <!-- Partie roulette -->
+    <div class="roulette">
+      <rouletteitem 
+        v-for="(option,index) in roulette.options" 
+        v-bind:option="option"
+        v-bind:selected="roulette.selected === index"
+        v-bind:grasdechoix="roulette.grasdechoix === index"
+        v-bind:key="index">
+      </rouletteitem>
+    </div>
+  
+    <!-- Partie bouton et autre -->
+    <div class="actions" :class="{ running: roulette.running }">
+      <div class="lancer" @click="lancer">Roulez jeunesse !</div>
+      <div class="edit" @click="showmodal = true">⚙️</div>
+    </div>
+
+    <!-- Modal edition -->
+    <div class="modalwrapper" v-if="showmodal" @click="showmodal = false">
+      <div class="modal" @click.stop>
+        <!-- Titre modal -->
+        <div class="title">Editer les choix</div>
+
+        <!-- Nouvelle option -->
+        <div class="actions nouveau">
+          <div><input type="text" v-model="nouvelleoption" @keyup.enter="ajouter"></div>
+          <div @click="ajouter">Ajouter</div>
+        </div>
+
+        <!-- Liste options modal -->
+        <div class="editliste">
+          <div 
+            class="option" 
+            v-for="(option,index) in roulette.options" 
+            v-bind:key="index">
+            <div>{{ option }}</div>
+            <div @click="retirer(index)">❌</div>
+          </div>
+        </div>
+
+        <!-- Actions modal -->
+        <div class="actions">
+          <div class="lancer" @click="showmodal = false">Terminer</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="public/js/roulette.js"></script>
+<script src="public/js/app.js"></script>
+</body>
+</html>

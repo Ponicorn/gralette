@@ -1,0 +1,15 @@
+@import 'colors';
+@import 'basic';
+
+.gralette {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  
+
+  .winner {
+    color: deeppink;
+  }
+}
