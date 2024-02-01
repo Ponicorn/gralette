@@ -50,7 +50,7 @@ export const useRouletteStore = defineStore('roulette', () => {
             spinCounter++;
             if (!instant && spinCounter > 4) wait += 100;
         }
-        loop(wait, true);
+        await loop(wait, true);
         isSpinning.value = false;
     };
 
@@ -62,5 +62,6 @@ export const useRouletteStore = defineStore('roulette', () => {
         pickWinner,
         spin,
         loop,
+        isSpinning,
     };
 });

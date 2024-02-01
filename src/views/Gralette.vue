@@ -7,26 +7,32 @@ const roulette = useRouletteStore();
 </script>
 
 <template>
+
     <Header />
 
-    <!-- loop on graletteStore choice -->
     <div class="gralette">
-        <div
-            v-for="choice, key in roulette.choices"
-            :key="key"
-            class="choice"
-            :class="{'winner': roulette.winner === choice}"
-        >
-            {{ choice }}
+    <!-- loop on graletteStore choice -->
+        <div class="choices">
+            <div
+                v-for="choice, key in roulette.choices"
+                :key="key"
+                class="choice"
+                :class="{'winner': roulette.winner === choice}"
+            >
+                {{ choice }}
+            </div>
         </div>
-    </div>
 
-    <div>
-        <button
-            class="btn-spin"
-            @click="roulette.spin()"
-        >
-            Roulez jeunesse !
-        </button>
-    </div>
+        <div class="button-spin">
+            <button
+                @click="roulette.spin()"
+                :disabled="roulette.isSpinning"
+            >
+                Roulez jeunesse !
+            </button>
+            <router-link tag="div" class="choice-edit" to="/edit" >
+                ⚙️
+            </router-link>
+        </div>
+    </div>    
 </template>
