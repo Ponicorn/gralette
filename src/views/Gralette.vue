@@ -14,6 +14,7 @@ const roulette = useRouletteStore();
         <div
             v-for="choice, key in roulette.choices"
             :key="key"
+            class="choice"
             :class="{'winner': roulette.winner === choice}"
         >
             {{ choice }}
@@ -22,7 +23,8 @@ const roulette = useRouletteStore();
 
     <div>
         <button
-            @click="roulette.spin"
+            class="btn-spin"
+            @click="roulette.spin()"
         >
             Roulez jeunesse !
         </button>

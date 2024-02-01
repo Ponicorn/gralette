@@ -25,3 +25,5 @@ rules:
         - off
     no-await-in-loop:
         - off
+    no-externaous-dependencies:
+        - devDependencies: off
