@@ -15,38 +15,38 @@ function addChoice() {
 </script>
 
 <template>
-    <Header />
+    <Header title="Gralette" subtitle="Édition du gras" />
 
     <RouterLink to="/">
         Retour
     </RouterLink>
 
-    <div class="choices-edit">
-        <div
-            v-for="choice, key in roulette.choices"
-            :key="key"
-            class="choice"
-            :class="{'winner': roulette.winner === choice}"
-        >
-            <div>
-                {{ choice }}
-            </div>
-            <div class="choice-delete">
-                <span @click="roulette.removeChoice(choice)">
-                    Supprimer
-                </span>
+    <div class="choices-edit-wrapper">
+        <div class="choices-edit">
+            <div
+                v-for="choice, key in roulette.choices"
+                :key="key"
+                class="choice"
+                :class="{'winner': roulette.winner === choice}"
+            >
+                <div class="label">
+                    {{ choice }}
+                </div>
+                <div class="choice-delete">
+                    <span @click="roulette.removeChoice(choice)">❌</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="choice-add">
-        <div>
-            <input type="text" v-model="newChoice" />
-        </div>
-        <div>
-            <button @click="addChoice()">
-                Ajouter
-            </button>
+        <div class="choice-add">
+            <div class="input">
+                <input type="text" v-model="newChoice" />
+            </div>
+            <div>
+                <button @click="addChoice()">
+                    Ajouter
+                </button>
+            </div>
         </div>
     </div>
 </template>

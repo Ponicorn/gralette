@@ -1,0 +1,55 @@
+.gralette {
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .choice {
+      margin: 10px;
+      padding: 10px;
+      border: 5px solid $color-primary;
+      font-size: 1.5em;
+      font-weight: bold;
+
+      &.winner {
+        background-color: $color-primary;
+        color: $white;
+      }
+    }
+  }
+
+  .button-spin {
+    text-align: center;
+    margin: 20px;
+    button {
+      background-color: $color-primary;
+      cursor: pointer;
+      color: $white;
+      padding: 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+      border: none;
+      transition: 0.1s ease-in-out;
+
+      &:hover {
+        background-color: lighten($color-primary, 10%);
+      }
+
+      &[disabled] {
+        opacity: 0.5;
+        &:hover {
+          background-color: $color-primary;
+        }
+      }
+    }
+
+    .choice-edit {
+      padding: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}

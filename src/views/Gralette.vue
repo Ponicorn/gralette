@@ -1,5 +1,6 @@
 <script setup>
 import Header from '../components/Header.vue';
+import { RouterLink } from 'vue-router';
 import { useRouletteStore } from '../stores/roulette';
 
 const roulette = useRouletteStore();
@@ -8,7 +9,7 @@ const roulette = useRouletteStore();
 
 <template>
 
-    <Header />
+    <Header title="Gralette" subtitle="La roulette du gras" />
 
     <div class="gralette">
     <!-- loop on graletteStore choice -->
@@ -30,9 +31,7 @@ const roulette = useRouletteStore();
             >
                 Roulez jeunesse !
             </button>
-            <router-link tag="div" class="choice-edit" to="/edit" >
-                ⚙️
-            </router-link>
+            <RouterLink class="choice-edit" to="/edit" >⚙️</RouterLink>
         </div>
     </div>    
 </template>

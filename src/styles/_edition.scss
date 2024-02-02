@@ -1,0 +1,50 @@
+.choices-edit-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .choice {
+        display: flex;
+        margin: 5px 0;
+        padding: 15px;
+        width: 100%;
+        background: $white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: all 0.2s ease;
+        &:hover {
+            background-color: lighten($color-primary, 40%);
+        }
+
+        .label {
+            flex: 1;
+            margin-right: 8px;
+        }
+
+        .choice-delete {
+            cursor: pointer;
+        }
+    }
+ 
+    .choice-edit.winner {
+        background-color: $color-primary;
+        color: $white;
+    }
+
+    .choice-add {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .input {
+            width: 100%;
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                text-align: center;
+            }
+        }
+    }
+}

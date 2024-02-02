@@ -1,6 +1,13 @@
+<script setup>
+defineProps({
+    title: String,
+    subtitle: String
+})
+</script>
+
 <template>
     <header>
-        <h1>Gralette</h1>
-        <h2>La roulette du gras</h2>
+        <h1>{{ title }}</h1>
+        <h2 v-if="subtitle.length > 0">{{ subtitle }}</h2>
     </header>
 </template>
