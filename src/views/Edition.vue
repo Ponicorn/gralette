@@ -17,11 +17,27 @@ function addChoice() {
 <template>
     <Header title="Gralette" subtitle="Édition du gras" />
 
-    <RouterLink to="/">
-        Retour
-    </RouterLink>
+    <div class="retour-wrap">
+        <RouterLink to="/">
+            ⬅ Retour
+        </RouterLink>
+    </div>
 
     <div class="choices-edit-wrapper">
+
+        <div class="choice-add">
+                <form @submit.prevent="addChoice()" >
+                <div class="input">
+                    <input type="text" v-model="newChoice" />
+                </div>
+                <div>
+                    <button class="btn">
+                        Ajouter
+                    </button>
+                </div>
+            </form>
+        </div>
+
         <div class="choices-edit">
             <div
                 v-for="choice, key in roulette.choices"
@@ -38,15 +54,6 @@ function addChoice() {
             </div>
         </div>
 
-        <div class="choice-add">
-            <div class="input">
-                <input type="text" v-model="newChoice" />
-            </div>
-            <div>
-                <button @click="addChoice()">
-                    Ajouter
-                </button>
-            </div>
-        </div>
+       
     </div>
 </template>

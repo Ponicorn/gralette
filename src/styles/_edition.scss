@@ -1,8 +1,26 @@
+.retour-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    a {
+        padding: 15px;
+        font-size: 1.5em;
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+    }
+
+}
+
 .choices-edit-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     .choice {
         display: flex;
@@ -33,17 +51,18 @@
     }
 
     .choice-add {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        .input {
-            width: 100%;
-
-            input {
-                width: 100%;
-                padding: 10px;
-                margin: 5px 0;
-                text-align: center;
+        width: 100%;
+        form {
+            display: flex;
+            justify-content: center;
+            .input {
+                margin-right: 4em;
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 5px 0;
+                    text-align: center;
+                }
             }
         }
     }
