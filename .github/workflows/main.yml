@@ -19,13 +19,17 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-        
-      - name: Build 📦
-        run: |
-          mkdir dist
-          cp -R index.html public dist/
 
-      - name: Upload ⬆️
+      - name: Setup Node 🎛️
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies 📦
+        run: npm ci
+
+      - name: Build 🏗️
+        run: npm run build
+
+      - name: Upload 🚀
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
