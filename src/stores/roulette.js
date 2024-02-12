@@ -10,16 +10,22 @@ export const useRouletteStore = defineStore('roulette', () => {
         'Hash Browns',
     ];
 
-    const choices = ref(defaultChoices);
+    if (!localStorage.rouletteChoices || !localStorage.rouletteChoices.length) {
+        localStorage.setItem('rouletteChoices', defaultChoices);
+    }
+
+    const choices = ref(localStorage.rouletteChoices.split(',') ?? defaultChoices);
     const winner = ref();
     const isSpinning = ref(false);
 
     const addChoice = (choice) => {
         choices.value.push(choice);
+        localStorage.setItem('rouletteChoices', choices.value);
     };
 
     const removeChoice = (choice) => {
         choices.value = choices.value.filter((c) => c !== choice);
+        localStorage.setItem('rouletteChoices', choices.value);
     };
 
     const pickWinner = () => choices.value[Math.floor(Math.random() * choices.value.length)];

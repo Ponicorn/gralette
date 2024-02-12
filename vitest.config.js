@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { mergeConfig, defineConfig } from 'vitest/config';
 import viteconfig from './vite.config';
 
@@ -6,6 +7,6 @@ export default mergeConfig(
     defineConfig({
         test: {
             environment: 'jsdom',
-        }
-    })
+        },
+    }),
 );

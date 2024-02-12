@@ -1,5 +1,7 @@
 import { createPinia, setActivePinia } from 'pinia';
-import { beforeEach, describe, expect, it } from 'vitest';
+import {
+    beforeEach, describe, expect, it,
+} from 'vitest';
 import { useRouletteStore } from '../roulette';
 
 describe('Roulette', () => {
