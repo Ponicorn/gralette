@@ -1,0 +1,34 @@
+.gralette {
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .choice {
+      margin: 10px;
+      padding: 10px;
+      border: 5px solid $color-primary;
+      font-size: 1.5em;
+      font-weight: bold;
+
+      &.winner {
+        background-color: $color-primary;
+        color: $white;
+      }
+    }
+  }
+
+  .button-spin {
+    text-align: center;
+    margin: 20px;
+
+    .choice-edit {
+      padding: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}
