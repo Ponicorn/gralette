@@ -3,11 +3,13 @@ import { defineStore } from 'pinia';
 
 export const useRouletteStore = defineStore('roulette', () => {
     const defaultChoices = [
-        'Bacon',
-        'Eggs',
-        'Toast',
-        'Sausage',
-        'Hash Browns',
+        'McDonalds',
+        'Burger King',
+        'Kentucky Fried Chicken',
+        'Dominos',
+        'Feuillette',
+        'Poulet rôti du Cora',
+        'Cantine',
     ];
 
     if (!localStorage.rouletteChoices || !localStorage.rouletteChoices.length) {
