@@ -1,7 +1,10 @@
 'use strict';
 
+// Modifier ici pour la liste par défaut
+const ListeGrasse = ['KFC', 'McDo', 'Burger King', 'Cantine', 'Kebab']; 
+
 let roulette = {
-  options : ['KFC', 'McDo', 'Burger King', 'Cantine', 'Kebab'] ,
+  options : ListeGrasse ,
   selected : -1,
   running: false,
   tour: 0,
